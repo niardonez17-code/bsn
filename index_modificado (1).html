@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mis 15 · Jennifer Dayana</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Georgia,'Times New Roman',serif;color:#40506b;background:linear-gradient(180deg,#eaf5ff 0%,#fbfdff 48%,#edf6ff 100%);overflow-x:hidden}
+section{padding:72px 20px;text-align:center}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;background:radial-gradient(circle at 50% 22%,#fff 0,#eef8ff 40%,#cfe7ff 100%)}
+.hero:before,.hero:after{content:"";position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.9);filter:blur(1px);opacity:.65}
+.hero:before{width:520px;height:520px;box-shadow:0 0 90px #fff;top:-210px;left:-180px}
+.hero:after{width:430px;height:430px;box-shadow:0 0 80px #fff;bottom:-210px;right:-150px}
+.sparkles{position:absolute;inset:0;background-image:radial-gradient(#fff 1.5px,transparent 1.5px);background-size:75px 75px;opacity:.72}
+.card{position:relative;z-index:2;max-width:760px;padding:35px 22px}
+.monogram{width:88px;height:88px;border:2px solid rgba(83,112,150,.45);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;font-size:42px;font-style:italic;color:#49698f;background:rgba(255,255,255,.7)}
+.kicker{letter-spacing:4px;text-transform:uppercase;font-size:12px;margin-bottom:18px;color:#263f5c;font-weight:700}
+.hero-text{max-width:650px;margin:10px auto;line-height:1.75;font-size:17px;color:#263f5c;font-weight:600;text-shadow:0 1px 2px rgba(255,255,255,.95)}
+h1{font-size:clamp(50px,12vw,100px);font-weight:400;line-height:.9;color:#49698f;margin-top:12px}
+.name{font-size:clamp(26px,6vw,48px);letter-spacing:5px;margin:20px 0 6px;color:#385878;font-weight:500}
+.surname{font-size:clamp(15px,3vw,22px);letter-spacing:4px;color:#405f85}
+.divider{margin:25px auto;width:120px;border-top:1px solid #8aa6c5}
+.date{display:block;font-size:18px;letter-spacing:2px;color:#355778;text-decoration:none;margin:7px auto;font-weight:600}
+.date-link:hover{color:#1f446c;text-decoration:underline}
+.date-hint{font-size:12px;letter-spacing:1px;color:#49698f;margin-top:9px}
+.btn{display:inline-block;margin-top:28px;padding:13px 28px;border:1px solid #7895b5;border-radius:30px;text-decoration:none;color:#355778;background:rgba(255,255,255,.82);cursor:pointer;font-family:inherit;font-size:16px;transition:.25s}
+.btn:hover{background:#fff;transform:translateY(-2px)}
+.enter-btn{font-weight:700;padding:15px 32px;color:#294d70}
+.hidden{display:none}
+h2{font-size:35px;font-weight:400;color:#49698f;margin-bottom:18px}
+p{max-width:700px;margin:10px auto;line-height:1.75;font-size:17px}
+.story{background:rgba(255,255,255,.48)}
+.story p{max-width:720px}
+.story-title{font-size:14px;letter-spacing:4px;text-transform:uppercase;color:#718aa7;margin-bottom:10px}
+.preview{background:linear-gradient(180deg,#f8fbff,#e9f4ff)}
+.preview-card{max-width:780px;margin:30px auto 0;padding:24px;border-radius:26px;background:rgba(255,255,255,.7);border:1px solid #c7d8e9;box-shadow:0 12px 35px rgba(73,105,143,.08)}
+.preview-card img{width:100%;max-height:560px;object-fit:cover;object-position:center 35%;border-radius:20px;display:block}
+.small-title{margin-top:20px;color:#49698f;letter-spacing:2px;font-size:14px;text-transform:uppercase}
+.parents{background:rgba(255,255,255,.58)}
+.parent-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;max-width:850px;margin:32px auto}
+.parent-card{padding:18px;border-radius:22px;background:rgba(255,255,255,.78);border:1px solid #c7d8e9}
+.parent-card img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:17px;display:block;margin-bottom:15px}
+.parent-role{font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#7891ad;margin-bottom:6px}
+.parent-name{font-size:19px;color:#405f85;line-height:1.4}
+.info{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;max-width:850px;margin:35px auto}
+.box{padding:25px;border:1px solid #c4d5e7;background:rgba(255,255,255,.76);border-radius:18px}
+.box strong{display:block;margin-bottom:9px;color:#49698f;font-size:18px}
+.date-box{display:block;color:#40506b;text-decoration:none}
+.calendar-text{display:block;margin-top:10px;font-size:12px;color:#7891ad}
+.blue-reserved{margin-top:5px}.blue-dots{display:flex;justify-content:center;gap:8px;margin-top:14px}.blue-dots i{display:block;width:18px;height:18px;border-radius:50%;border:1px solid rgba(70,100,135,.25)}
+.blue-dots i:nth-child(1){background:#d9ecff}.blue-dots i:nth-child(2){background:#b8dcff}.blue-dots i:nth-child(3){background:#8fc5f5}.blue-dots i:nth-child(4){background:#639ed3}.blue-dots i:nth-child(5){background:#3f76ad}
+.gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;max-width:850px;margin:35px auto}
+.photo{aspect-ratio:3/4;overflow:hidden;border-radius:20px;border:2px solid #a9bfd7;background:#e8f3ff;box-shadow:0 8px 24px rgba(73,105,143,.08)}
+.photo img{width:100%;height:100%;display:block;object-fit:cover}
+.photo-bebe img{object-position:center 16%}
+.photo-vestido{grid-column:1/-1;max-width:430px;margin:0 auto;width:100%}
+.countdown{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:30px}.time{min-width:85px;padding:18px 10px;border-radius:15px;background:white;border:1px solid #c9d9e8}.time b{display:block;font-size:28px;color:#49698f}.time span{font-size:11px;text-transform:uppercase;letter-spacing:1px}
+.location{background:linear-gradient(180deg,#eef7ff,#dbeeff)}.location-link{display:inline-block;color:#355778;text-decoration:none;font-size:19px;margin-top:5px;font-weight:600}.location-link:hover{text-decoration:underline}
+.rsvp{display:flex;justify-content:center;flex-wrap:wrap;gap:8px}.rsvp .btn{margin-top:12px}
+.signature{padding-top:40px;padding-bottom:70px}.signature h2{font-size:31px}.signature p{color:#7188a2}
+footer{padding:35px 20px;text-align:center;font-size:14px;color:#7088a2}
+@media(max-width:600px){section{padding:58px 16px}.parent-grid,.info,.gallery{grid-template-columns:1fr}.name{letter-spacing:3px}.surname{letter-spacing:2px}.date{font-size:16px}.photo-vestido{grid-column:auto}.hero-text{font-size:16px}.parent-card img{aspect-ratio:4/5}}
+</style>
+</head>
+<body>
+<section class="hero">
+<div class="sparkles"></div>
+<div class="card">
+<div class="monogram">J</div>
+<div class="kicker">Una noche de ensueño</div>
+<h1>Mis 15</h1>
+<div class="name">JENNIFER DAYANA</div>
+<div class="surname">ORDOÑES RINCON</div>
+  <div class="ornament">✦　✧　✦</div>
+  <p class="intro">“Hay momentos en la vida que se vuelven inolvidables cuando los compartimos con quienes amamos.”</p>
+<div class="divider"></div>
+<button class="btn enter-btn" onclick="abrirInvitacion()">✦ Entrar a la invitación ✦</button>
+</div>
+</section>
+
+<section class="intro-section">
+ <div class="container">
+  <div class="small">Una historia que comenzó</div>
+  <div class="line"></div>
+  <img src="bebe.jpeg" class="foto-bebe" alt="Jennifer de bebé">
+
+<style>
+.foto-bebe {
+    width: 85%;
+    max-width: 680px;
+    height: auto;
+    display: block;
+    margin: 28px auto;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 20px;
+    box-shadow: 0 8px 28px rgba(73,105,143,.12);
+}
+@media(max-width:600px){
+.foto-bebe {
+    width: 88%;
+    max-width: 680px;
+}
+}
+</style>
+  <div class="small">y hoy se convierte en un sueño</div>
+  <h2 class="name">Jennifer Dayana</h2>
+  <p>Con mucha alegría quiero invitarte a celebrar conmigo un día muy especial: mis quince años.</p>
+  <p>Será una noche llena de momentos, sueños y recuerdos que quiero compartir con las personas que hacen parte de mi vida.</p>
+ </div>
+</section>
+
+<section class="preview">
+<h2>Un sueño está por comenzar</h2>
+<p>Un pequeño adelanto.</p>
+<div class="preview-card">
+<img src="vestido.jpeg" alt="Un pequeño adelanto del vestido de Jennifer">
+<div class="small-title">Del gran momento</div>
+</div>
+</section>
+
+<section class="parents">
+<h2>Con el amor de mis padres</h2>
+<div class="parent-grid">
+<div class="parent-card">
+<img src="mama.jpeg" alt="Jennifer con su mamá">
+<div class="parent-role">Mamá</div>
+<div class="parent-name">Luz Argeniz Rincón López</div>
+</div>
+<div class="parent-card">
+<img src="papa.jpeg" alt="Jennifer con su papá">
+<div class="parent-role">Papá</div>
+<div class="parent-name">José Aristides Ordoñes Cabrera</div>
+</div>
+</div>
+</section>
+
+<section>
+<h2>Guarda esa fecha</h2>
+<p>de la celebración y acompáñame a vivir una noche inolvidable.</p>
+<div class="info">
+<a class="box date-box" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Mis%2015%20de%20Jennifer%20Dayana&amp;dates=20261025T190000/20261025T230000&amp;details=Celebraci%C3%B3n%20de%20los%2015%20de%20Jennifer%20Dayana&amp;location=Cra%2027%20%2330-43%2C%20Salesianos" target="_blank" rel="noopener">
+<strong>Domingo 25 de octubre de 2026</strong>
+7:00 p. m.
+<span class="calendar-text">♡ Toca aquí para guardar la fecha en tu calendario</span>
+</a>
+<div class="box">
+<strong>Vestuario</strong>
+<div class="blue-reserved">El color azul, en todos sus tonos, está reservado para la quinceañera.</div>
+<div class="blue-dots"><i></i><i></i><i></i><i></i><i></i></div>
+</div>
+</div>
+</section>
+
+<section>
+<h2>La cuenta regresiva comienza..</h2>
+<div class="countdown"><div class="time"><b id="days">0</b><span>Días</span></div><div class="time"><b id="hours">0</b><span>Horas</span></div><div class="time"><b id="mins">0</b><span>Minutos</span></div><div class="time"><b id="secs">0</b><span>Segundos</span></div></div>
+</section>
+
+<section class="location">
+<h2>Nos encontramos en...</h2>
+<a class="location-link" href="https://www.google.com/maps/search/?api=1&amp;query=Cra+27+%2330-43+Salesianos" target="_blank" rel="noopener">Cra 27 #30-43, Salesianos</a>
+<br>
+<a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Cra+27+%2330-43+Salesianos" target="_blank" rel="noopener">📍 Ver ubicación y cómo llegar</a>
+</section>
+
+<section class="signature">
+<h2>Tu compañía hará este día más especial</h2>
+<p>Será una alegría poder contar contigo. Puedes confirmar tu asistencia aqui.</p>
+<div class="rsvp">
+<a class="btn" href="https://wa.me/573174318966?text=Dios%20te%20bendiga%20Luz%20Argeniz%2C%20quiero%20confirmar%20mi%20asistencia%20a%20los%2015%20de%20Jennifer%20Dayana." target="_blank" rel="noopener">WhatsApp · Luz Argeniz</a>
+<a class="btn" href="https://wa.me/573178544568?text=Dios%20%20te%20bendiga%20Jose%C3%A9%20Aristides%2C%20quiero%20confirmar%20mi%20asistencia%20a%20los%2015%20de%20Jennifer%20Dayana." target="_blank" rel="noopener">WhatsApp · José Aristides</a>
+</div>
+</section>
+
+<footer>Jennifer Dayana · Con amor · Mis 15 años · 2026 ♡</footer>
+</div>
+
+<script>
+function abrirInvitacion(){
+ const contenido=document.getElementById('contenidoInvitacion');
+ contenido.classList.remove('hidden');
+ setTimeout(()=>contenido.scrollIntoView({behavior:'smooth'}),100);
+}
+const target=new Date('2026-10-25T19:00:00-05:00').getTime();
+function update(){
+ const diff=Math.max(0,target-Date.now());
+ document.getElementById('days').textContent=Math.floor(diff/86400000);
+ document.getElementById('hours').textContent=Math.floor(diff%86400000/3600000);
+ document.getElementById('mins').textContent=Math.floor(diff%3600000/60000);
+ document.getElementById('secs').textContent=Math.floor(diff%60000/1000);
+}
+update();setInterval(update,1000);
+</script>
+</body>
+</html>
